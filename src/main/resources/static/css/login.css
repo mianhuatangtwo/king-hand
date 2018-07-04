@@ -1,0 +1,7 @@
+body{
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+
+}
+.m-login-main{
+    background: #ffffff url("images/bg-login.jpg") no-repeat;
+}
