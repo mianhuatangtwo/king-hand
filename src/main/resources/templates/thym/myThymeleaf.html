@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>My Thymeleaf Page</title>
+<link href="@{/static/css/myThymeleaf.css}" />
+</head>
+<body>
+	<div class="mht-content" style="width: 100%;">
+			<header style="text-align: center;height: 30px;line-height: 30px;">My first thymeleaf</header>
+			
+			<table style="padding: 20px 20px;">
+				<tbody>
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr th:each="li : ${lists}" th:class="(${liStat.odd} ? 'odd' : 'even')">
+						<td th:text="${liStat.index+1}">10</td>
+						<td th:text="${li}">james</td>
+					</tr>
+				</tbody>
+			</table>
+			<div th:object="${book}">
+				<p th:utext="*{name}">name</p>
+				<p th:utext="*{author}">author</p>
+				<p th:text="${book.price}">111.00</p>
+			</div>
+			<div>
+				<a th:if="${book == null}">login</a>
+			</div>
+			<div>
+				<a th:unless="${book == null}">xxx</a>
+			</div>
+			<div>
+				<span th:text="${#strings.length(book.name)}"></span>
+			</div>
+			<div th:replace="footer :: copy">
+			
+			</div>
+	</div>
+<script th:inline="javascript">
+/*<![CDATA[*/
+...
+var msg = /*[[${book.author}]] */ '';
+...
+/*]]>*/
+</script>
+</body>
+</html>
