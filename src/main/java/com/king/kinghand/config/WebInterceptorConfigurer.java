@@ -17,27 +17,30 @@ import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+
 /**
  * @program: king-hand
  * @description: 自定义注解拦截器
  * @author: mianhuatang
  * @create: 2018-04-01 14:24
  **/
-//@Configuration
-//public class WebInterceptorConfigurer extends WebMvcConfigurationSupport{
-//
-//
-//    @Override
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//        //添加拦截器
-//        registry.addInterceptor(new WebInterceptor()).addPathPatterns("/**")
-//                .excludePathPatterns("/swagger/*");
-//        super.addInterceptors(registry);
-//    }
-//
-//    @Override
-//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/static/");
-//        super.addResourceHandlers(registry);
-//    }
-//}
+@Configuration
+public class WebInterceptorConfigurer extends WebMvcConfigurationSupport{
+
+
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        //添加拦截器
+        registry.addInterceptor(new WebInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/swagger/*");
+//        Cookie cookie = new Cookie(name, value)
+        super.addInterceptors(registry);
+    }
+
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/static/");
+        super.addResourceHandlers(registry);
+    }
+}
