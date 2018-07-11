@@ -5,10 +5,10 @@ import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @program: king-hand
@@ -19,6 +19,18 @@ import java.util.Map;
 @Controller
 @Api(tags = "用户API")
 public class LoginController {
+	
+	
+	/**
+	 * 跳转注册页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/register",method = RequestMethod.GET)
+	public String register(HttpServletRequest request) {
+		
+		return "register/register";
+	}
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     @ApiOperation(value = "登录get请求",notes = "")
@@ -47,5 +59,6 @@ public class LoginController {
         obj.put("pwd",pwd);
         return obj.toString();
     }
+    
 
 }

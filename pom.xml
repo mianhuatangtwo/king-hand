@@ -48,9 +48,9 @@
 		</dependency>
 		<!--mysql start-->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.11</version>
 		</dependency>
 		<!--mysql end-->
 		<!-- mybatis start-->
