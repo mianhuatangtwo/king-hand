@@ -37,7 +37,7 @@ public class LoginController {
     @ApiImplicitParam(name = "name",value = "登录用户名", required = true,dataType = "String",defaultValue = "")
     public String login(Model model,String name){
         System.out.println("用户名：");
-        return "test";
+        return "login";
     }
 
     @RequestMapping(value = "/login/valid",method = RequestMethod.POST)
