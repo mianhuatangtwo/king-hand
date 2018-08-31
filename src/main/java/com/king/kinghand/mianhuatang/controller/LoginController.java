@@ -1,14 +1,21 @@
 package com.king.kinghand.mianhuatang.controller;
 
 
+import com.google.code.kaptcha.impl.DefaultKaptcha;
 import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @program: king-hand
@@ -20,7 +27,9 @@ import javax.servlet.http.HttpServletRequest;
 @Api(tags = "用户API")
 public class LoginController {
 	
-	
+	@Autowired
+    private DefaultKaptcha captchaProducer;
+
 	/**
 	 * 跳转注册页面
 	 * @param request
@@ -58,6 +67,30 @@ public class LoginController {
         obj.put("name",name);
         obj.put("pwd",pwd);
         return obj.toString();
+    }
+
+    /**
+     *
+     * @param httpServletRequest
+     * @param httpServletResponse
+     */
+    @ApiOperation(value = "获取验证码",notes = "生产验证码字符串")
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public void defaultKaptcha(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse){
+
+        byte[] captchaChallengeAsJpeg = null;
+        ByteArrayOutputStream jpegOutputStream = new ByteArrayOutputStream();
+        try{
+            //生产验证码字符串保存到session中
+            String createText = captchaProducer.createText();
+            httpServletRequest.getSession().setAttribute("vrifyCode",createText);
+            //使用生产的验证码字符串返回一个BufferedImage对象并转为byte写入到byte数组中
+            BufferedImage challenge = captchaProducer.createImage(createText);
+            ImageIO.write(challenge,"jpg",jpegOutputStream);
+        }catch (Exception e){
+
+        }
+
     }
     
 
