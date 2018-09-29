@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>我可以</title>
+</head>
+<link rel="stylesheet" th:href="@{/css/bootstrap-3.3.7-dist/css/bootstrap.min.css}" />
+<style type="text/css">
+    .llj-header{
+        height: 150px;
+        line-height: 150px;
+        background: url("/images/only/llj-header.jpg") no-repeat;
+    }
+    .llj-header-p{
+        margin-left: 200px;
+        font-size: 30px;
+        color:red;
+    }
+    .img-row{
+        width: 100%;
+    }
+    .img-life{
+        width: 500px;
+        height: 350px;
+        display: inline-block;
+    }
+    .llj-content-right{
+        width: 23%;
+        display: inline-block;
+        position: absolute;
+        top:180px;
+    }
+    .llj-content-right-p{
+        margin: 20px 20px;
+        line-height: 20px;
+
+    }
+    .llj-content-right-p-special{
+        margin: 20px 20px;
+        line-height: 20px;
+        color: red;
+    }
+    .llj-content-right-p-import{
+        margin: 20px 20px;
+        line-height: 35px;
+        font-size: 30px;
+    }
+    .llj-footer{
+        margin: 30px 30px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="main-content">
+        <header class="llj-header" style="">
+                <p class="llj-header-p"></p>
+        </header>
+        <div class="llj-content">
+            <div class="llj-content-left" style="width: 75%;display: inline-block;">
+                <div class="img-row">
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_1.jpg}" />
+                    </div>
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_2.jpg}" />
+                    </div>
+                </div>
+                <div class="img-row">
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_3.jpg}" />
+                    </div>
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_4.jpg}" />
+                    </div>
+                </div>
+                <div class="img-row">
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_5.jpg}" />
+                    </div>
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_6.jpg}" />
+                    </div>
+                </div>
+                <div class="img-row">
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_7.jpg}" />
+                    </div>
+                    <div class="img-life">
+                        <img th:src="@{/images/only/1_8.jpg}" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="llj-content-right">
+                <p class="llj-content-right-p">
+                    第一次看见你笑，像天使，触不可及，像孩子，灿烂，甜美，仿佛可以融化一切，虽然你笑的很多，可在我看来，却显得弥足珍贵。我喜欢上你的笑
+                </p>
+                <p class="llj-content-right-p">
+                    第一次听你用另一种声音跟我说话，撒娇，像个小可爱，纯真美好。我喜欢上了你
+                </p>
+                <p class="llj-content-right-p">
+                    第一次看你在厨房做饭，认真的样子，娴熟的动作，很迷人。尝试做新菜的时候，对每个步骤都很重视，有原则，有要求。我喜欢上了你
+                </p>
+                <p class="llj-content-right-p">
+                    第一次你问我问题，认真请教的模样，满脸懵懵的，我喜欢上了你
+                </p>
+
+                <p class="llj-content-right-p-special">
+                    我相信缘分，每个人的缘分早就是冥冥中注定的，只是时机没到。但是，当缘分真的到来的时候，便会有一种相见恨晚的感觉。世间所有的相遇都是一种久别的重逢
+                </p>
+                <p class="llj-content-right-p-special">
+                    如果在对的时间遇上对的人，那就是缘分。和你一起，我感觉安稳、心里很平静，就像鱼儿有了水，鸟儿有了翅膀般重要。
+                </p>
+
+                <p class="llj-content-right-p-import">
+                    你愿意和我一起，走完剩下的路吗
+                </p>
+
+                <div class="llj-content-textarea">
+                    <textarea name="thought" id="thought" rows="6" cols="40" placeholder="你的想法。。。"></textarea>
+                    <button class="btn btn-primary" type="button" >告诉他</button>
+                </div>
+            </div>
+
+        </div>
+        <footer class="llj-footer">
+            <span>© 棉花糖内心深处 </span>
+        </footer>
+        <!--<audio th:src="@{/video/wokeyi.mp3}" autoplay loop></audio>-->
+    </div>
+    <div class="modal fade" id="lljThought" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">不符合规矩吧</h4>
+                </div>
+                <div class="modal-body">不能给他一个空想！</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript"  th:src="@{/js/jquery/js/jquery-3.1.1.js}"></script>
+<script type="text/javascript"  th:src="@{/css/bootstrap-3.3.7-dist/js/bootstrap.js}"></script>
+<script type="text/javascript"  th:src="@{/js/mht-common.js}"></script>
+<script>
+    $(function () {
+        $(document).on("click",".btn-primary",function () {
+            var thought = $("#thought").val();
+            if(thought){
+                var callbackFun = function (response) {
+                    if(response && response.code == '101'){
+                        location.href = "/login/register";
+                    }
+                }
+                ajaxPost("/only/llj/result",{thought:encodeURI($("#thought").val())},callbackFun);
+            }else{
+                $("#lljThought").modal("show");
+            }
+
+        });
+    });
+    function yj(){
+        var beginTimes = new Date("2018-07-02".replace(/-/g, "/"));
+        var now = new Date();
+        var seconds = now.getTime() - beginTimes.getTime();
+        var day = Math.floor(seconds/(24*3600*1000));
+        var lastSeconds = seconds%(24*3600*1000);
+        var hours=Math.floor(lastSeconds/(3600*1000));
+        var lastSeconds2 = lastSeconds%(3600*1000);
+        var minutes = Math.floor(lastSeconds2/(60*1000));
+        var lastSeconds3 = lastSeconds2%(60*1000);
+        var seconds = Math.round(lastSeconds3/1000);
+        $(".llj-header-p").html("相遇：" + day + "天" + hours + "小时" + minutes + "分" + seconds + "秒");
+        //return "相遇：" + day + "天" + hours + "小时" + minutes + "分" + seconds + "秒";
+    }
+    setInterval("yj()",1000);
+</script>
+</html>

@@ -8,3 +8,14 @@
 label.error{
 	color: red;
 }
+.mht-left{
+	text-align: left;
+}
+
+
+/*
+ 小手
+*/
+.mouse-hand{
+	cursor: pointer;
+}
