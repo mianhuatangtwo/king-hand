@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @ServletComponentScan
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@MapperScan("com.king.kinghand.mianhuatang.mapper.*xml")
+@MapperScan("com.king.kinghand.mianhuatang.dao")
 public class KingHandApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {

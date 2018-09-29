@@ -9,7 +9,7 @@ public class Uuser {
 
     private String pwd;
 
-    private Date createTime;
+    private Date createTime = new Date();
 
     public Long getId() {
         return id;
